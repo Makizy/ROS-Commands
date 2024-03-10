@@ -117,7 +117,7 @@ rosrun turtlesim turtle_teleop_key
 ![image](https://github.com/Makizy/ROS-Commands/assets/53753128/8349055b-02cb-4a39-88aa-ecb387aa7a66)
 
 
-### Rviz
+## Rviz
 
 - Run in terminal after running `roscore` in another tap:
 
@@ -126,5 +126,16 @@ rviz rviz
 ```
 
 ![image](https://github.com/Makizy/ROS-Commands/assets/53753128/828269cf-2db2-4567-9413-de119c2825c8)
+
+
+## `rqt_graph`
+
+Sometimes we have too many topics and nodes with `rqt_graph` we can visualize what is happening.
+
+```
+rqt_graph
+```
+
+![image](https://github.com/Makizy/ROS-Commands/assets/53753128/d0a06628-97b3-48d2-86c9-f7ef10c87bf4)
 
 
