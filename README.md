@@ -73,6 +73,58 @@ Run `rostopic echo /my_topic` in a new terminal to see the results
 rostopic pub /mytopic std_msgs/
 ```
 
+- run in the terminal to publish 2 with `Float32`
+
+```
+rostopic pub -r10 /my_topic std_msgs/Float32 2.0
+```
+Run `rostopic echo /my_topic` in a new terminal to see the results
+
+- `rostopic info` information about the node and publisher and subscriber will be printed.
+
+```
+rostopic info /rosout
+```
+
+## Python Tutorials
+
+Run some simple tasks with python packages on ros
+
+> [!IMPORTANT]
+> `rosrun` is for activating a node and `roslaunch` is for activating a package
 
 
-  
+> [!NOTE]
+> `rosrun <package> <node>`
+> 
+```
+rosrun turtlesim trutlesim_node
+```
+It should open like this: <br>
+![image](https://github.com/Makizy/ROS-Commands/assets/53753128/2f2b67e3-6b28-413c-b22e-c03d990d293e)
+
+
+- open another window in terminal and run:
+
+```
+rosrun turtlesim turtle_teleop_key
+```
+
+  Now use the arrow keys in keybord to move the turtle.
+  > [!CAUTION]
+  > Be sure that you are using the arrow keys on the terminal and not TurtleSim
+
+![image](https://github.com/Makizy/ROS-Commands/assets/53753128/8349055b-02cb-4a39-88aa-ecb387aa7a66)
+
+
+### Rviz
+
+- Run in terminal after running `roscore` in another tap:
+
+```
+rviz rviz
+```
+
+![image](https://github.com/Makizy/ROS-Commands/assets/53753128/828269cf-2db2-4567-9413-de119c2825c8)
+
+
