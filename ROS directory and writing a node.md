@@ -2,10 +2,33 @@
 
 ## Make Directory
 
--make directory
+- make directory
 
 ```
 makdir catkin_ws
 ```
 
-to navigat to directory we use 
+to navigate to directory we use `cd` :
+
+```
+cd catkin_ws
+```
+
+> [!NOTE]
+> use `ls` in directory to see the list.
+
+> [!TIP]
+> use `win + tab` to switch between terminal windows.
+
+- run in terminal to make directory:
+  similar to making in c++, it will make the file and check versions.  
+
+  ```
+  catkin_make
+  ```
+  
+  
+
+
+
+
