@@ -1,141 +1,49 @@
-# ROS-Commands
+# ROS Commands Summary
 
-## How to source ROS
-- Run the cmd in termianl:  <br>
-> in this way you have to source every time. It is usefull when you are using ROS1 and ROS2 at the same time.
-```
-source /opt/ros/noetic/setup.bash
-```
-or 
-- Run the cmd in termianl:
-  
-```
- gedit ~/.bashrc
-```
-  then paste the source code `source /opt/ros/noetic/setup.bash` in the last line of the text file that has opened.
+This repository contains two markdown files outlining essential commands and tutorials for working with ROS (Robot Operating System). Below is a summary of each file:
 
-## Roscore and a few essential commands
+## 1 - ROS [source + topics]
 
-- run the cmd in termianl:  <br>
-> This cmd will open ROS. Master is now activated
+This file provides instructions on sourcing ROS, essential ROS commands, working with topics, Python tutorials, using RViz, and visualizing the ROS graph with `rqt_graph`.
 
-```
-roscore
-```
-now open another window in terminal 
+### How to source ROS
+- Instructions on how to source ROS environment variables, either by running a command in the terminal or by editing the `.bashrc` file.
 
-> shortcut = ctrl + shift + t <br>
-> Toggle between windows = alt + number window
+### Roscore and Essential Commands
+- Command to start `roscore` and manage multiple terminal windows efficiently.
+- Commands for listing topics, publishing topics, subscribing to topics, and checking topic information.
+- Tutorial on exploring different message types using `rostopic`.
 
-### Topics
+### Python Tutorials
+- Instructions on running basic tasks with Python packages in ROS.
+- Explanation of the difference between `rosrun` and `roslaunch`.
+- Tutorial on controlling a turtle in the TurtleSim environment using Python.
 
-> we are writing a variable in a topic in ros without node
-> 
-Run:
+### RViz
+- Command to launch RViz for visualization purposes in ROS.
 
-```
-rostopic list
-```
+### `rqt_graph`
+- Command to visualize the ROS computation graph using `rqt_graph`.
 
-- Publishing a topic
-> std_msgs = Standard Messages
+## 2 - ROS [catkin_make nodes]
 
-```
-rostopic pub /my_topic std_msgs/String " Hello World"
-```
+This file focuses on using `catkin_make` to build ROS packages, creating packages, writing publisher and subscriber nodes, and running them.
 
-Open another window and run `rostopic list`, `/my_topic` should be added.
+### Make Directory and Create a Package
+- Instructions on creating a workspace directory and creating a new ROS package using `catkin_create_pkg`.
 
-- With `echo` cmd we will see Hello world being published.
-  Run in a new terminal:
+### Write Publisher and Subscriber Nodes with VSCode
+- Instructions on writing simple Python nodes for publishing and subscribing to topics using rospy.
+- Explanation of adding ROS logging levels (info, warning, error) and managing node execution with `rospy.spin()`.
 
-```
-rostopic echo /my_topic
-```
+### Publisher Node
+- Code and instructions for creating a publisher node that publishes messages to a specified topic.
 
+### Subscriber Node
+- Code and instructions for creating a subscriber node that listens to messages from a specified topic.
 
+### Additional Notes
+- Tips on using VSCode for ROS development and managing Python environment versions.
+- Tips on managing ROS nodes and topics effectively.
 
-
-- `r10` rate 10 Hz will be published
-
-```
-rostopic pub -r10 /my_topic std_msgs/String " Hello World"
-```
-
-Run `rostopic echo /my_topic` in a new terminal to see the results
-
-
-- Diffrent types of `std_msgs`:
-
-    - paste the cmd in a new terminal and tab a few times to see the types of `std_msgs` that can be used:
-
-```
-rostopic pub /mytopic std_msgs/
-```
-
-- run in the terminal to publish 2 with `Float32`
-
-```
-rostopic pub -r10 /my_topic std_msgs/Float32 2.0
-```
-Run `rostopic echo /my_topic` in a new terminal to see the results
-
-- `rostopic info` information about the node and publisher and subscriber will be printed.
-
-```
-rostopic info /rosout
-```
-
-## Python Tutorials
-
-Run some simple tasks with python packages on ros
-
-> [!IMPORTANT]
-> `rosrun` is for activating a node and `roslaunch` is for activating a package
-
-
-> [!NOTE]
-> `rosrun <package> <node>`
-> 
-```
-rosrun turtlesim trutlesim_node
-```
-It should open like this: <br>
-![image](https://github.com/Makizy/ROS-Commands/assets/53753128/2f2b67e3-6b28-413c-b22e-c03d990d293e)
-
-
-- open another window in terminal and run:
-
-```
-rosrun turtlesim turtle_teleop_key
-```
-
-  Now use the arrow keys in keybord to move the turtle.
-  > [!CAUTION]
-  > Be sure that you are using the arrow keys on the terminal and not TurtleSim
-
-![image](https://github.com/Makizy/ROS-Commands/assets/53753128/8349055b-02cb-4a39-88aa-ecb387aa7a66)
-
-
-## Rviz
-
-- Run in terminal after running `roscore` in another tap:
-
-```
-rviz rviz
-```
-
-![image](https://github.com/Makizy/ROS-Commands/assets/53753128/828269cf-2db2-4567-9413-de119c2825c8)
-
-
-## `rqt_graph`
-
-Sometimes we have too many topics and nodes with `rqt_graph` we can visualize what is happening.
-
-```
-rqt_graph
-```
-
-![image](https://github.com/Makizy/ROS-Commands/assets/53753128/d0a06628-97b3-48d2-86c9-f7ef10c87bf4)
-
-
+These files serve as comprehensive guides for beginners to get started with ROS development and familiarize themselves with essential commands and concepts.
