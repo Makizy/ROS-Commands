@@ -1,4 +1,4 @@
-# ROS directory and writing a node
+# ROS catkin_make and writing publisher and subscriber nodes
 
 ## Make Directory
 
@@ -30,7 +30,10 @@ cd catkin_ws
   - after making it, use `ls` in terminal. There should be 3 names like the picture bellow.
 ![image](https://github.com/Makizy/ROS-Commands/assets/53753128/413e2e7b-48d1-4b75-ad09-1a9b4586888a)
 
+## create a package
+
 go to `src` with cd :
+
 ```
 cd src
 ```
@@ -60,6 +63,8 @@ cd test_sub_pub
 
 > `src` is where source is.
 
+## write a publisher and subscriber nodes with vscode
+
 > [!NOTE]
 > when we want to write a code in `src`.
 
@@ -73,6 +78,8 @@ It is preferable to use VScode to code.
 
 > [!NOTE]
 > Install usefull extentions in vscode : Python, CMake, ROS.
+
+### a simple node
 
 - we have to define what vesion of python we are using in the begining of the code:
 
@@ -221,7 +228,8 @@ if __name__ == '__main__':
 > while working on python, upon saving the code. we can use `rosrun` or `python` to run the code
 > but for c++ we have to use `catkin_make` every time.
 
-- making a publisher node
+### publisher node
+
 > [!NOTE]
 > `queue_size` is the size which store history if it is 10, that means after storing 10 message the 11th will be saved and the first one will be deleted. this determines how much RAM is used.
 
@@ -292,10 +300,104 @@ rostopic echo /data
 > [!NOTE]
 > use `rosnode info /publisher_node` to check the information of the node.
 
+### Subscriber node
+
+- this is the code for subscriber:
+
+```python
+
+#!/usr/bin/env python3.8
+
+import rospy
+from std_msgs.msg import String #import String from std_msgs.msg library
 
 
+def handle(data):
+    print( "test            ", data)
+
+if __name__ == '__main__':
+    
+    #creating a node with its name
+    rospy.init_node('subscriber') 
+    
+    # equal to print('Hello world)
+    rospy.loginfo('Hello from subscriber world')
+
+    #define a rate with rospy (10Hz) 
+    rate = rospy.Rate(10)
+    
+    #subscribe to a topic /data here and then do the function 'handle' that was defined
+    rospy.Subscriber("/data", String, handle)
+    
+    while not rospy.is_shutdown():
+        
+        
+        #rospy.loginfo("In the loop")
+        
+        #will use the rate we have defined to sleep
+        rate.sleep()
+        
+    else:
+        rospy.loginfo("Node shutdown")
+
+```
+
+- after saving the code as sub_python.py run :
+
+```
+chmod +x sub_python.py
+```
+> [!CAUTION]
+> Be sure that you are in the src of the package where the codes are while using `chmod`
+
+- python doesnt need make but to make a habit of it its bette to catkin_make it:
+> in the catkin_ws env
+
+```
+catkin_make
+```
+
+- then run the code with rosrun:
+
+```
+rosrun test_sub_pub sub_python.py
+```
+
+> [!NOTE]
+> `rospy.spin()` make a node run and we use it instead of rate that we defined before.
+> its rate is whatever your systems rate is.
+
+```python
+#!/usr/bin/env python3.8
+
+import rospy
+from std_msgs.msg import String #import String from std_msgs.msg library
 
 
+def handle(data):
+    print( "test            ", data)
+
+if __name__ == '__main__':
+    
+    #creating a node with its name
+    rospy.init_node('subscriber') 
+    
+    # equal to print('Hello world)
+    rospy.loginfo('Hello from subscriber world')
+
+    #subscribe to a topic /data here and then do the function 'handle' that was defined
+    rospy.Subscriber("/data", String, handle)
+    
+    while not rospy.is_shutdown():
+        pass
+
+    else:
+        
+        rospy.loginfo("Node shutdown")
+        
+    
+    rospy.spin()
+```
 
 
 
