@@ -25,7 +25,7 @@ This file provides instructions on sourcing ROS, essential ROS commands, working
 ### `rqt_graph`
 - Command to visualize the ROS computation graph using `rqt_graph`.
 
-## 2 - ROS [catkin_make nodes]
+## 2 - ROS [catkin_make + nodes]
 
 This file focuses on using `catkin_make` to build ROS packages, creating packages, writing publisher and subscriber nodes, and running them.
 
@@ -47,3 +47,12 @@ This file focuses on using `catkin_make` to build ROS packages, creating package
 - Tips on managing ROS nodes and topics effectively.
 
 These files serve as comprehensive guides for beginners to get started with ROS development and familiarize themselves with essential commands and concepts.
+
+
+## Contribution
+
+Special thanks to @nooshin-kohli for her guidance and instruction in the class. This README and the associated files were created as part of the class material under her supervision.
+
+If you have any suggestions or improvements to this repository, feel free to open an issue or create a pull request. Your contributions are greatly appreciated!
+
+
