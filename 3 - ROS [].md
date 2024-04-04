@@ -134,6 +134,38 @@ urdf is used in many simulations and its not only limited to ROS. a simple urdf 
 - navigation : turtlebot3 - turtlebot
 - control    : 4 wheeled robot 
 
+> install a plugin for solidwork or blender.
+> it is not recommended to get urdf staight from soldwork or blender becouse it has too many errors. Its better to get the mesh from there and use it in te urdf.
 
+- in the test_sub_pub create a new folder named `urdf`.
 
+- create new file `gedit arm.urdf`
 
+- parent <robot name=2link_robot>
+
+- child ` material`
+
+```
+<material name=black>
+  <color rgba="0 0 0 0.7"/>
+</material>
+```
+> `rgba` : red green blue transparency. it can be find with a simple search.
+
+- we now want to only show in rviz becouse only visual matters
+
+```
+	<link name="arm1">
+		<visual>
+			<geometry>
+				<box size="1 .05 .05"/>
+			</geometry>
+			<origin rpy="0 0 0" xyz="0.5 0 0"/>
+			<material name="black"/>
+		</visual>
+	</link>
+
+```
+- `<box size` is in SI and meter.
+- `origin` how much distance from `rpy` = roll pitch yaw, or from `xyz`.
+- 
