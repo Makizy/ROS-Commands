@@ -72,7 +72,7 @@ if __name__ == '__main__':
 
 ```
 
--subscriber node code :
+- subscriber node code :
 
 ```
 #!/usr/bin/env python3.8
@@ -115,6 +115,25 @@ roslaunch test_sub_pub nodes.launch
 this is how the `rqt_graph` will look like :
 
 ![image](https://github.com/Makizy/ROS-Commands/assets/53753128/c7470e38-a05d-40ec-8166-713adde845c3)
+
+
+## Gazebo simulation and ROS cheat sheet
+
+The cheat sheet is available [here](https://github.com/nooshin-kohli/simulation)
+
+## URDF
+
+urdf is used in many simulations and its not only limited to ROS. a simple urdf contains come box,...).If we want to visualize it urdf yse meches and mesh formats can be ftl,object,dae,....
+
+> `xacro` is the same as `urdf`. in `xacro` for example it help you calculate repeated parameters. like inertia.
+> in otherwords `xacro` is usded to simplify `urdf`
+
+### suggestion for the first projects
+
+- arm        : ur5 or ur10
+- navigation : turtlebot3 - turtlebot
+- control    : 4 wheeled robot 
+
 
 
 
